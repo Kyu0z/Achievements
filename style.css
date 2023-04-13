@@ -1,0 +1,466 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.animation {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 400px;
+}
+
+/* ============================================================= */
+
+.style_1 {
+    margin-left: 70px;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #615af9;
+    /*  alternate-reverse */
+    animation: FadeHide 1s infinite linear;
+
+}
+
+@keyframes FadeHide {
+    to {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ======================================================= */
+
+.style_2 {
+    margin-left: 70px;
+}
+
+.loader {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader div {
+    position: absolute;
+}
+
+.loader div:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: #ff6651;
+    animation: LeftToRight 1s infinite linear;
+    animation-delay: -.5s;
+}
+
+.loader div:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: #20c3b2;
+    animation: LeftToRight 1s infinite linear;
+}
+
+@keyframes LeftToRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(80px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Fake box-red cho nó chạy cùng lúc với box-red read */
+.loader div:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: #ff6651;
+    animation: box_red-fake 1s infinite linear;
+    animation-delay: -.5s;
+}
+
+@keyframes box_red-fake {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    49.99% {
+        opacity: 1;
+        transform: translateX(80px);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(0);
+    
+    }
+} 
+
+/* =============================================================== */
+
+.style_3 {
+    margin-left: 70px;
+}
+
+.dots-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+}
+
+.dots-loading div {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #6a5af9;
+    animation: stagger .5s infinite linear alternate;
+    animation-delay: calc(-1 * (0.5/4) * var(--delay));
+}
+
+@keyframes stagger {
+    0% {
+        transform: translateY(0);
+    }
+
+    50%,100% {
+        transform: translateY(20px);
+    }
+}
+
+/* ==================================================================== */
+
+.style_4 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 2em;
+    margin-left: 70px;
+  }
+  
+.span_4 {
+    width: 0.3em;
+    height: 1em;
+    background-color: #3cefff;
+  }
+  
+.span_4:nth-of-type(1) {
+    animation: grow 1s -0.45s ease-in-out infinite;
+  }
+  
+.span_4:nth-of-type(2) {
+    animation: grow 1s -0.3s ease-in-out infinite;
+  }
+  
+.span_4:nth-of-type(3) {
+    animation: grow 1s -0.15s ease-in-out infinite;
+  }
+  
+.span_4:nth-of-type(4) {
+    animation: grow 1s ease-in-out infinite;
+  }
+  
+  @keyframes grow {
+    0%,
+    100% {
+      transform: scaleY(1);
+    }
+  
+    50% {
+      transform: scaleY(2);
+    }
+  }
+  
+/* ==================================================================== */
+
+.style_5 {
+    width: 4em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 70px;
+  }
+  
+  .balls {
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: #fc2f70;
+  }
+  
+  .balls:nth-of-type(1) {
+    transform: translateX(-100%);
+    animation: left-swing 0.5s ease-in alternate infinite;
+  }
+  
+  .balls:nth-of-type(3) {
+    transform: translateX(-95%);
+    animation: right-swing 0.5s ease-out alternate infinite;
+  }
+  
+  @keyframes left-swing {
+    50%,
+    100% {
+      transform: translateX(95%);
+    }
+  }
+  
+  @keyframes right-swing {
+    50% {
+      transform: translateX(-95%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+/* ==================================================================== */
+
+.style_6 {
+    width: 2.5em;
+    height: 3em;
+    border: 3px solid transparent;
+    border-top-color: #fc2f70;
+    border-bottom-color: #fc2f70;
+    border-radius: 50%;
+    animation: spin-stretch 2s ease infinite;
+    margin-left: 70px;
+  }
+  
+  @keyframes spin-stretch {
+    50% {
+      transform: rotate(360deg) scale(0.4, 0.33);
+      border-width: 8px;
+    }
+    100% {
+      transform: rotate(720deg) scale(1, 1);
+      border-width: 3px;
+    }
+  }
+  
+/* ==================================================================== */
+  
+  .dots {
+    width: 3.5em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 70px;
+  }
+  
+  .dots div {
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: #fc2f70;
+    animation: fade 0.8s ease-in-out alternate infinite;
+  }
+  
+  .dots div:nth-of-type(1) {
+    animation-delay: -0.4s;
+  }
+  
+  .dots div:nth-of-type(2) {
+    animation-delay: -0.2s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+/* ==================================================================== */
+
+.style_8 {
+    width: 3em;
+    height: 3em;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-left: 70px;
+  }
+  
+.style_8 > div {
+    width: 0.5em;
+    height: 0.5em;
+    background-color: #3cefff;
+    border-radius: 50%;
+    animation: fade 1.5s alternate ease-in-out infinite;
+  }
+  
+.style_8 > div:nth-of-type(2),
+.style_8 > div:nth-of-type(4) {
+    animation-delay: 0.25s;
+  }
+  
+.style_8 > div:nth-of-type(3),
+.style_8 > div:nth-of-type(5),
+.style_8 > div:nth-of-type(7) {
+    animation-delay: 0.5s;
+  }
+  
+.style_8 > div:nth-of-type(6),
+.style_8 > div:nth-of-type(8) {
+    animation-delay: 0.75s;
+  }
+  
+.style_8 > div:nth-of-type(9) {
+    animation-delay: 1s;
+  }
+  
+  @keyframes fade {
+    to {
+      opacity: 0.2;
+    }
+  }
+  
+/* ================================================================= */
+
+.style-9 {
+    margin-left: 70px;
+}
+
+svg {
+    width: 3.75em;
+    transform-origin: center;
+    animation: rotate 2s linear infinite;
+  }
+  
+  circle {
+    fill: none;
+    stroke: #fc2f70;
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dashoffset: -125px;
+    }
+  }
+  
+/* ===================================================================== */
+
+/* You can remove these code below*/
+:root {
+  --primary: #08aeea;
+  --secondary: #13D2B8;
+  --purple: #bd93f9;
+  --pink: #ff6bcb;
+  --blue: #8be9fd;
+  --gray: #333;
+  --font: "Poppins", sans-serif;
+  --gradient: linear-gradient(40deg, #ff6ec4, #7873f5);
+  --shadow: 0 0 15px 0 rgba(0,0,0,0.05);
+}
+
+        .line-loading {
+          width: 100%;
+          height: 0.5rem;
+          position: relative;
+          margin: 0 auto;
+        }
+        .line-loading:before {
+          content: "";
+          position: absolute;
+          right: auto;
+          left: 0;
+          height: 100%;
+          background-color: var(--primary);
+          animation: lineLoading 1s forwards infinite linear;
+        }
+
+        @keyframes lineLoading {
+          0% {
+            right: 100%;
+          }
+          50% {
+            right: 0;
+            left: 0;
+          }
+          100% {
+            right: 0;
+            left: 100%;
+          }
+        }
+
+/* ============================================================= */
+
+        .dots-loading_more {
+          display: flex;
+          justify-content: center;
+          margin-top: 200px;
+        }
+        .dots-loading_more > div {
+          width: 1rem;
+          height: 1rem;
+          border-radius: 1rem;
+          background-color: #ccc;
+          margin: 0 1rem;
+          animation: dotLoading 1s forwards infinite linear;
+        }
+
+        .dots-loading_more > div:nth-child(2) {
+          animation-delay: 0.1s;
+        }
+        .dots-loading_more > div:nth-child(3) {
+          animation-delay: 0.2s;
+        }
+        .dots-loading_more > div:nth-child(4) {
+          animation-delay: 0.3s;
+        }
+
+        @keyframes dotLoading {
+          to {
+            opacity: 0;
+          }
+        }
